@@ -1,3 +1,10 @@
-export default function ContainerLayout({ children }) {
-  return <div className="container mx-auto">{children}</div>;
+export default function ContainerLayout({ className, children, ...props }) {
+  return (
+    <div
+      className={`container text-white mx-auto my-5 lg:px-32 ${className}`}
+      {...props}
+    >
+      {children}
+    </div>
+  );
 }
