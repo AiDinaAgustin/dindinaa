@@ -10,13 +10,24 @@ import {
 import { Badge } from "@/components/ui/badge.jsx";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Loading from "@/components/atoms/Loading/index.jsx";
+import { motion } from "framer-motion";
 
 import ContainerLayout from "@/components/templates/ContainerLayout";
 import { ArrowRight, ChevronRight, Github, Heart, Menu, X } from "lucide-react";
 
 export default function Home() {
   const [navActive, setNavActive] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Adjust the timeout duration as needed
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const location = useLocation();
   const navLinks = [
@@ -149,8 +160,16 @@ export default function Home() {
     },
   ];
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
       <ContainerLayout className={`font-fira overflow-x-auto`}>
         <nav className="lg:flex lg:justify-between items-center">
           <div className="flex justify-between items-center">
@@ -200,7 +219,12 @@ export default function Home() {
               <Paragraph className="my-5 !leading-loose text-justify text-white/70">
                 {description}
               </Paragraph>
-              <Button>Contact Me</Button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.8 }}
+              >
+                <Button>Contact Me</Button>
+              </motion.button>
             </div>
             <div className="relative w-full bg-white lg:backdrop-blur-3xl">
               <div className="absolute bottom-32 lg:-right-[600px] right-32 lg:w-72 lg:h-72 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter opacity-70 animate-blob"></div>
@@ -217,12 +241,14 @@ export default function Home() {
                 </Heading>
                 <div className="w-full h-0.5 bg-primary rounded-lg"></div>
               </div>
-              <Link
-                to={"https://github.com/AiDinaAgustin"}
-                className={`hover:underline hover:underline-offset-4 hover:text-primary whitespace-nowrap ml-5`}
-              >
-                View All
-              </Link>
+              <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
+                <Link
+                  to={"https://github.com/AiDinaAgustin"}
+                  className={`hover:underline hover:underline-offset-4 hover:text-primary whitespace-nowrap ml-5`}
+                >
+                  View All
+                </Link>
+              </motion.a>
             </div>
             <div className="grid lg:grid-cols-3 grid-cols-1 gap-5">
               {projects.map((project) => (
@@ -250,18 +276,28 @@ export default function Home() {
                     </CardDescription>
                   </CardContent>
                   <CardFooter className="xl:flex xl:justify-between grid grid-cols-1 gap-3">
-                    <Link to={project.repository}>
-                      <Button variant="outline" className={"w-full"}>
-                        <Github />
-                        Repository
-                      </Button>
-                    </Link>
-                    <Link to={project.link}>
-                      <Button className={`w-full`}>
-                        <ChevronRight />
-                        Link
-                      </Button>
-                    </Link>
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.8 }}
+                    >
+                      <Link to={project.repository}>
+                        <Button variant="outline" className={"w-full"}>
+                          <Github />
+                          Repository
+                        </Button>
+                      </Link>
+                    </motion.button>
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.8 }}
+                    >
+                      <Link to={project.link}>
+                        <Button className={`w-full`}>
+                          <ChevronRight />
+                          Link
+                        </Button>
+                      </Link>
+                    </motion.button>
                   </CardFooter>
                 </Card>
               ))}
@@ -294,10 +330,15 @@ export default function Home() {
                 <Paragraph className="text-white/70 !leading-loose text-justify">
                   {description}
                 </Paragraph>
-                <Button className={`my-5`}>
-                  <ArrowRight />
-                  Read More
-                </Button>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.8 }}
+                >
+                  <Button className={`my-5`}>
+                    <ArrowRight />
+                    Read More
+                  </Button>
+                </motion.button>
               </div>
               <div className=""></div>
             </div>
@@ -335,6 +376,6 @@ export default function Home() {
           </Paragraph>
         </footer>
       </ContainerLayout>
-    </>
+    </motion.div>
   );
 }
