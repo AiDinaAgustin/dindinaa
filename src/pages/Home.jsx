@@ -15,7 +15,16 @@ import Loading from "@/components/atoms/Loading/index.jsx";
 import { motion } from "framer-motion";
 
 import ContainerLayout from "@/components/templates/ContainerLayout";
-import { ArrowRight, ChevronRight, Github, Heart, Menu, X } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronRight,
+  Github,
+  Heart,
+  Menu,
+  X,
+  Mail,
+  Linkedin,
+} from "lucide-react";
 
 export default function Home() {
   const [navActive, setNavActive] = useState(false);
@@ -157,6 +166,100 @@ export default function Home() {
       image: "https://via.placeholder.com/150",
       repository: "https://github.com",
       link: "https://github.com",
+    },
+  ];
+
+  const skillSet = [
+    {
+      name: "HTML",
+      image: "https://svgl-badge.vercel.app/api/Language/HTML5?theme=light",
+    },
+    {
+      name: "CSS",
+      image: "https://svgl-badge.vercel.app/api/Language/CSS?theme=light",
+    },
+    {
+      name: "JavaScript",
+      image:
+        "https://svgl-badge.vercel.app/api/Language/JavaScript?theme=light",
+    },
+    {
+      name: "React",
+      image: "https://svgl-badge.vercel.app/api/Library/React?theme=light",
+    },
+    {
+      name: "Node.js",
+      image: "https://svgl-badge.vercel.app/api/Library/Node.js?theme=light",
+    },
+    {
+      name: "Express",
+      image:
+        "https://svgl-badge.vercel.app/api/Framework/Express.js?theme=light",
+    },
+    {
+      name: "MongoDB",
+      image: "https://svgl-badge.vercel.app/api/Database/MongoDB?theme=light",
+    },
+    {
+      name: "PostgreSQL",
+      image:
+        "https://svgl-badge.vercel.app/api/Database/PostgreSQL?theme=light",
+    },
+    {
+      name: "MySQL",
+      image: "https://svgl-badge.vercel.app/api/Database/MySQL?theme=light",
+    },
+    {
+      name: "Tailwind",
+      image:
+        "https://svgl-badge.vercel.app/api/Framework/Tailwind%20CSS?theme=light",
+    },
+    {
+      name: "Bootstrap",
+      image:
+        "https://svgl-badge.vercel.app/api/Framework/Bootstrap?theme=light",
+    },
+    {
+      name: "Laravel",
+      image: "https://svgl-badge.vercel.app/api/Framework/Laravel?theme=light",
+    },
+    {
+      name: "Prisma",
+      image: "https://svgl-badge.vercel.app/api/Software/Prisma?theme=light",
+    },
+    {
+      name: "Firebase",
+      image: "https://svgl-badge.vercel.app/api/Hosting/Firebase?theme=light",
+    },
+    {
+      name: "Shadcn UI",
+      image: "https://svgl-badge.vercel.app/api/Library/shadcnui?theme=light",
+    },
+    {
+      name: "Next.Js",
+      image: "https://svgl-badge.vercel.app/api/Framework/Next.js?theme=light",
+    },
+    {
+      name: "Typescript",
+      image:
+        "https://svgl-badge.vercel.app/api/Language/TypeScript?theme=light",
+    },
+    {
+      name: "Redis",
+      image: "https://svgl-badge.vercel.app/api/Database/Redis?theme=light",
+    },
+  ];
+
+  const contacts = [
+    {
+      name: "Gmail",
+      link: "mailto:aidinaagustin2@gmail.com",
+      icon: <Mail />,
+    },
+    {
+      name: "LinkedIn",
+      link: "https://www.linkedin.com/in/aidina-agustin/",
+      icon: <Linkedin />,
     },
   ];
 
@@ -312,8 +415,17 @@ export default function Home() {
                 <div className="w-1/4 h-0.5 bg-primary rounded-lg"></div>
               </Heading>
             </div>
-            <div className="w-1/2">
-              <div className=""></div>
+            <div className="w-full">
+              <div className="flex flex-wrap gap-5">
+                {skillSet.map((skill) => (
+                  <motion.img
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.8 }}
+                    src={skill.image}
+                    alt={skill.name}
+                  />
+                ))}
+              </div>
             </div>
           </section>
           <section className="">
@@ -352,20 +464,48 @@ export default function Home() {
                 <div className="w-1/12 h-0.5 bg-primary rounded-lg"></div>
               </Heading>
             </div>
-            <div className="lg:w-1/2 w-full">
-              <div className="">
+            <div className="lg:flex grid lg:gap-10 gap-5">
+              <div className="lg:w-1/2 w-full">
                 <Paragraph className="text-white/70 !leading-loose text-justify">
-                  {description}
+                  I'm interested in freelance opportunities - especially
+                  ambitious projects. However, if you have other request or
+                  question, don't hesitate to contact me.
                 </Paragraph>
               </div>
-              <div className=""></div>
+              <div className="lg:w-1/2 lg:max-w-xs lg:ml-auto lg:flex w-full">
+                <Card className={`bg-[#282C33] border-primary`}>
+                  <CardHeader hasImage={false}>
+                    <CardTitle className={`text-white text-center !pb-0`}>
+                      Message Me on
+                    </CardTitle>
+                  </CardHeader>
+                  <CardDescription className={`flex mx-auto gap-3 p-3 !pt-0`}>
+                    {contacts.map((contact) => (
+                      <motion.a
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.8 }}
+                        href={contact.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={"w-full"}
+                      >
+                        <Button className="my-5 w-full">
+                          {contact.icon}
+                          {contact.name}
+                        </Button>
+                      </motion.a>
+                    ))}
+                  </CardDescription>
+                </Card>
+              </div>
             </div>
           </section>
         </main>
         <footer>
           <Paragraph className="text-center border-t mt-10 border-primary">
             <p className="my-10 mb-5">
-              &copy;Copright {Date().split(" ")[3]}. Made by{" "}
+              <span className={`text-primary`}>&copy;</span>Copright{" "}
+              {Date().split(" ")[3]}. Made by{" "}
               <Link
                 to="https://www.github.com/AiDinaAgustin"
                 className="text-primary"
