@@ -264,11 +264,11 @@ export default function Home() {
       link: "https://www.linkedin.com/in/aidina-agustin/",
       icon: <Linkedin />,
     },
-    {
-      name: "Instagram",
-      link: "https://www.instagram.com/sana.agustina/",
-      icon: <Instagram />,
-    }
+    // {
+    //   name: "Instagram",
+    //   link: "https://www.instagram.com/sana.agustina/",
+    //   icon: <Instagram />,
+    // }
   ];
 
   if (loading) {
