@@ -24,6 +24,9 @@ import {
   X,
   Mail,
   Linkedin,
+  Instagram,
+  Phone,
+  FolderGit2
 } from "lucide-react";
 
 export default function Home() {
@@ -69,57 +72,57 @@ export default function Home() {
       title: "Sistem Informasi Geografis SPBU Sukabumi",
       description: "Deploy your new project in one-click.",
       tags: ["#CodeIgniter", "#Bootstrap", "#MySQL"],
-      image: "https://via.placeholder.com/150",
-      repository: "https://github.com",
-      link: "https://github.com",
+      image: "/sig.png",
+      repository: "https://github.com/AiDinaAgustin",
+      link: "https://github.com/AiDinaAgustin",
     },
     {
       title: "Dzikir Pop",
       description: "Deploy your new project in one-click.",
       tags: ["#JavaScript", "#CSS", "#PHP", "MySQL"],
-      image: "https://via.placeholder.com/150",
-      repository: "https://github.com",
-      link: "https://github.com",
+      image: "/dpop.png",
+      repository: "https://github.com/AiDinaAgustin",
+      link: "https://github.com/AiDinaAgustin",
     },
     {
       title: "Sistem Informasi Kunjungan Wali Santri Pondok Pesantren As-salam",
       description: "Deploy your new project in one-click.",
       tags: ["#Laravel", "#Bootstrap", "#MySQL"],
-      image: "https://via.placeholder.com/150",
-      repository: "https://github.com",
-      link: "https://github.com",
+      image: "/assalam.png",
+      repository: "https://github.com/AiDinaAgustin",
+      link: "https://github.com/AiDinaAgustin",
     },
     {
       title: "Sistem Informasi Homeschooling Permata Hati",
       description: "Deploy your new project in one-click.",
       tags: ["#CI", "#Bootstrap", "#MySQL"],
-      image: "https://via.placeholder.com/150",
-      repository: "https://github.com",
-      link: "https://github.com",
+      image: "/edu.png",
+      repository: "https://github.com/AiDinaAgustin",
+      link: "https://github.com/AiDinaAgustin",
     },
     {
       title: "Website KKN Desa Wangunsari",
       description: "Deploy your new project in one-click.",
       tags: ["#Tailwind", "#JavaScript"],
-      image: "https://via.placeholder.com/150",
-      repository: "https://github.com",
-      link: "https://github.com",
+      image: "/kkn.png",
+      repository: "https://github.com/AiDinaAgustin",
+      link: "https://github.com/AiDinaAgustin",
     },
     {
       title: "Sistem Informasi Curug Cierang",
       description: "Deploy your new project in one-click.",
       tags: ["#Tailwind", "#JavaScript"],
-      image: "https://via.placeholder.com/150",
-      repository: "https://github.com",
-      link: "https://github.com",
+      image: "/curug.png",
+      repository: "https://github.com/AiDinaAgustin",
+      link: "https://github.com/AiDinaAgustin",
     },
     {
       title: "Castro Podcast Horror",
       description: "Deploy your new project in one-click.",
       tags: ["#Laravel", "#Tailwind", "#MySQL"],
-      image: "https://via.placeholder.com/150",
-      repository: "https://github.com",
-      link: "https://github.com",
+      image: "castro.png",
+      repository: "https://github.com/AiDinaAgustin",
+      link: "https://github.com/AiDinaAgustin",
     },
     {
       title: "POS Apotek",
@@ -132,9 +135,9 @@ export default function Home() {
         "#Prisma",
         "#Shadcn UI",
       ],
-      image: "https://via.placeholder.com/150",
-      repository: "https://github.com",
-      link: "https://github.com",
+      image: "/pos.png",
+      repository: "https://github.com/AiDinaAgustin",
+      link: "https://github.com/AiDinaAgustin",
     },
     {
       title: "Info Pangan Jakarta",
@@ -147,26 +150,26 @@ export default function Home() {
         "#Firebase",
         "Shadcn UI",
       ],
-      image: "https://via.placeholder.com/150",
-      repository: "https://github.com",
-      link: "https://github.com",
+      image: "/ipj.png",
+      repository: "https://github.com/AiDinaAgustin",
+      link: "https://github.com/AiDinaAgustin",
     },
-    {
-      title: "HR Payroll",
-      description: "Deploy your new project in one-click.",
-      tags: [
-        "#React",
-        "#Typescript",
-        "#Express",
-        "#PostgreSQL",
-        "#Redis",
-        "#Firebase",
-        "Tailwind",
-      ],
-      image: "https://via.placeholder.com/150",
-      repository: "https://github.com",
-      link: "https://github.com",
-    },
+    // {
+    //   title: "HR Payroll",
+    //   description: "Deploy your new project in one-click.",
+    //   tags: [
+    //     "#React",
+    //     "#Typescript",
+    //     "#Express",
+    //     "#PostgreSQL",
+    //     "#Redis",
+    //     "#Firebase",
+    //     "Tailwind",
+    //   ],
+    //   image: "https://via.placeholder.com/150",
+    //   repository: "https://github.com",
+    //   link: "https://github.com",
+    // },
   ];
 
   const skillSet = [
@@ -261,6 +264,11 @@ export default function Home() {
       link: "https://www.linkedin.com/in/aidina-agustin/",
       icon: <Linkedin />,
     },
+    {
+      name: "Instagram",
+      link: "https://www.instagram.com/sana.agustina/",
+      icon: <Instagram />,
+    }
   ];
 
   if (loading) {
@@ -311,7 +319,7 @@ export default function Home() {
           </ul>
         </nav>
         <main>
-          <section className="lg:my-32 my-10 lg:w-1/2">
+          <section className="lg:my-32 my-10 lg:w-1/2 pb-20">
             <div>
               <Heading className="text-justify">
                 Dina is a{" "}
@@ -336,7 +344,7 @@ export default function Home() {
               <div className="m-8 relative space-y-4"></div>
             </div>
           </section>
-          <section>
+          <section className="pb-20">
             <div className="flex justify-between my-5 items-center">
               <div className="flex gap-5 w-full items-center">
                 <Heading>
@@ -406,7 +414,7 @@ export default function Home() {
               ))}
             </div>
           </section>
-          <section className="">
+          <section className="pb-20">
             <div className="my-5">
               <Heading className={"flex items-center gap-5"}>
                 <p className="">
@@ -428,7 +436,7 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <section className="">
+          <section className="pb-20">
             <div className="my-5">
               <Heading className={"flex items-center gap-5 whitespace-nowrap"}>
                 <p className="">
